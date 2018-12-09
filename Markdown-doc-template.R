@@ -1,0 +1,8 @@
+setwd("~")
+devtools::create("aabortemplate")
+dir.create("~/aabortemplate/inst/rmarkdown/templates/research-article/skeleton", recursive = TRUE)
+#file.create("~/aabortemplate/inst/rmarkdown/templates/research-article/skeleton/skeleton.Rmd")
+#file.create("~/aabortemplate/inst/rmarkdown/templates/research-article/template.yaml")
+setwd("~")
+devtools::install("aabortemplate")
+setwd("~/projects")
