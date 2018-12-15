@@ -5,3 +5,4 @@
 .Ruserdata
 *.swp
 *.png
+.httr-oauth
