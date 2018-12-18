@@ -1,16 +1,11 @@
 #! /usr/bin/env Rscript
 #install.packages("tidyverse")
 #install.packages("devtools","roxygen2")
-<<<<<<< HEAD
-=======
-
->>>>>>> da3ee36... .cue file format convertion to text file which Audacity can read to separate tracks in lossless audio. Script for bash shell written in R. .cue is a metadata file which describes how the tracks of a CD or DVD are laid out. Audacity is linux music file editor.
 library(tidyverse, quietly = T)
 library(purrr, quietly = T)
 #library(glue)
 args <- commandArgs(TRUE)
 #print(args)
-<<<<<<< HEAD
 user<-args[1]
 path<-args[2]
 if(is.na(user)||is.na(path)){
@@ -34,19 +29,6 @@ if(!dir.exists(path)){
 }
 print(path)
 setwd(path)
-=======
-path<-args[1]
-cat(str_c(path, "\r\n"))
-oldPath<-getwd()
-tryCatch({
-  setwd(path)
-}, error= function(e){
-  cat(str_c("Error changing directory to: ", path, "\r\n"))
-  path = "/home/aabor/Downloads"
-  cat(str_glue("Using default path: {path}\r\n"))
-  setwd(path)
-})
->>>>>>> da3ee36... .cue file format convertion to text file which Audacity can read to separate tracks in lossless audio. Script for bash shell written in R. .cue is a metadata file which describes how the tracks of a CD or DVD are laid out. Audacity is linux music file editor.
 files<-dir(pattern = "\\.cue$", full.names = TRUE, recursive = TRUE)
 df<-tibble(filename=basename(files))
 cue2aud<-function(fn){
@@ -56,11 +38,7 @@ cue2aud<-function(fn){
     unlist %>% 
     str_trim()
   s<-s[str_which(s, pattern="TRACK 01"):length(s)]
-<<<<<<< HEAD
   
-=======
-
->>>>>>> da3ee36... .cue file format convertion to text file which Audacity can read to separate tracks in lossless audio. Script for bash shell written in R. .cue is a metadata file which describes how the tracks of a CD or DVD are laid out. Audacity is linux music file editor.
   df<-bind_cols(tibble(time1=str_subset(s, pattern="INDEX 01")), 
                 tibble(titles=str_subset(s, pattern="TITLE")))
   df1<-df %>% 
